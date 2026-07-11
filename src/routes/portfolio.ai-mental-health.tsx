@@ -3,7 +3,9 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Reveal } from "@/components/Reveal";
-import hero from "@/assets/portfolio-1.jpg";
+import heroAsset from "@/assets/gentle-path-hero.jpg.asset.json";
+
+const hero = heroAsset.url;
 
 const LIVE_URL = "https://gentle-path-create.lovable.app/";
 
