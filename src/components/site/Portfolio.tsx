@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink, FileText } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import p1 from "@/assets/portfolio-1.jpg";
 import p2 from "@/assets/portfolio-2.jpg";
@@ -7,12 +8,23 @@ import p4 from "@/assets/portfolio-4.jpg";
 import p5 from "@/assets/portfolio-5.jpg";
 import p6 from "@/assets/portfolio-6.jpg";
 
-const projects = [
+type Project = {
+  img: string;
+  category: string;
+  title: string;
+  desc: string;
+  liveUrl?: string;
+  caseStudyTo?: string;
+};
+
+const projects: Project[] = [
   {
     img: p1,
-    category: "SaaS Dashboard",
-    title: "Northwind Analytics",
-    desc: "A real-time analytics platform for growth teams.",
+    category: "Healthcare • Mental Health • Therapy • AI Web Application",
+    title: "AI Mental Health & Therapy Practice Website Built with Lovable AI",
+    desc: "A calming, AI-powered website for a private therapy practice with booking, therapist profiles and mood tracking.",
+    liveUrl: "https://gentle-path-create.lovable.app/",
+    caseStudyTo: "/portfolio/ai-mental-health",
   },
   {
     img: p2,
@@ -65,36 +77,79 @@ export function Portfolio() {
         </Reveal>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, i) => (
-            <Reveal key={p.title} delay={i * 50}>
-              <article className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
-                <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    loading="lazy"
-                    width={1200}
-                    height={900}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="flex items-start justify-between gap-4 p-6">
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                      {p.category}
-                    </p>
-                    <h3 className="mt-2 text-lg">{p.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {p.desc}
-                    </p>
-                  </div>
-                  <span className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:bg-foreground group-hover:text-background">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+          {projects.map((p, i) => {
+            const hasLive = Boolean(p.liveUrl);
+            const CardWrapper = ({ children }: { children: React.ReactNode }) =>
+              hasLive ? (
+                <a
+                  href={p.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                  aria-label={`${p.title} — open live project`}
+                >
+                  {children}
+                </a>
+              ) : (
+                <div>{children}</div>
+              );
+
+            return (
+              <Reveal key={p.title} delay={i * 50}>
+                <article className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
+                  <CardWrapper>
+                    <div className="aspect-[4/3] overflow-hidden bg-muted">
+                      <img
+                        src={p.img}
+                        alt={p.title}
+                        loading="lazy"
+                        width={1200}
+                        height={900}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      />
+                    </div>
+                    <div className="flex items-start justify-between gap-4 p-6">
+                      <div>
+                        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                          {p.category}
+                        </p>
+                        <h3 className="mt-2 text-lg">{p.title}</h3>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          {p.desc}
+                        </p>
+                      </div>
+                      <span className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:bg-foreground group-hover:text-background">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                  </CardWrapper>
+
+                  {hasLive && (
+                    <div className="flex flex-wrap gap-2 border-t border-border p-4">
+                      <a
+                        href={p.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                        View Live Project
+                      </a>
+                      {p.caseStudyTo && (
+                        <Link
+                          to={p.caseStudyTo}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+                        >
+                          <FileText className="h-3.5 w-3.5" />
+                          View Case Study
+                        </Link>
+                      )}
+                    </div>
+                  )}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
