@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortfolioAiMentalHealthRouteImport } from './routes/portfolio.ai-mental-health'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioAiMentalHealthRoute = PortfolioAiMentalHealthRouteImport.update({
+  id: '/portfolio/ai-mental-health',
+  path: '/portfolio/ai-mental-health',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/portfolio/ai-mental-health': typeof PortfolioAiMentalHealthRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/portfolio/ai-mental-health': typeof PortfolioAiMentalHealthRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/portfolio/ai-mental-health': typeof PortfolioAiMentalHealthRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/portfolio/ai-mental-health'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/portfolio/ai-mental-health'
+  id: '__root__' | '/' | '/portfolio/ai-mental-health'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PortfolioAiMentalHealthRoute: typeof PortfolioAiMentalHealthRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/ai-mental-health': {
+      id: '/portfolio/ai-mental-health'
+      path: '/portfolio/ai-mental-health'
+      fullPath: '/portfolio/ai-mental-health'
+      preLoaderRoute: typeof PortfolioAiMentalHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PortfolioAiMentalHealthRoute: PortfolioAiMentalHealthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
