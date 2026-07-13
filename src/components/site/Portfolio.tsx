@@ -48,6 +48,13 @@ const projects: Project[] = [
     liveUrl: "https://neat-note-home.lovable.app",
   },
   {
+    img: pDeenFlow,
+    category: "Web Application",
+    title: "Deen Flow",
+    desc: "A modern Islamic productivity and habit-tracking web app for daily worship and personal goals.",
+    liveUrl: "https://deen-flow-app.lovable.app",
+  },
+  {
     img: p3,
     category: "Mobile App",
     title: "Muni Finance",
