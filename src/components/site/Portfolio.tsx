@@ -39,6 +39,13 @@ const projects: Project[] = [
     liveUrl: "https://noor-al-hidayah-portal.lovable.app",
   },
   {
+    img: pNeatNote,
+    category: "Landing Page",
+    title: "Neat Note",
+    desc: "A modern, minimal landing page for a distraction-free note-taking app.",
+    liveUrl: "https://neat-note-home.lovable.app",
+  },
+  {
     img: p3,
     category: "Mobile App",
     title: "Muni Finance",
