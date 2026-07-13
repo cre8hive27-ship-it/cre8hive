@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import gentlePathAsset from "@/assets/gentle-path-hero.jpg.asset.json";
 import noorAsset from "@/assets/noor-al-hidayah-hero.jpg.asset.json";
 import neatNoteAsset from "@/assets/neat-note-hero.jpg.asset.json";
+import deenFlowAsset from "@/assets/deen-flow-hero.jpg.asset.json";
 import p3 from "@/assets/portfolio-3.jpg";
 import p4 from "@/assets/portfolio-4.jpg";
 import p5 from "@/assets/portfolio-5.jpg";
