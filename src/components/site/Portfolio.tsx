@@ -13,6 +13,7 @@ import p6 from "@/assets/portfolio-6.jpg";
 const p1 = gentlePathAsset.url;
 const pNoor = noorAsset.url;
 const pNeatNote = neatNoteAsset.url;
+const pDeenFlow = deenFlowAsset.url;
 
 type Project = {
   img: string;
