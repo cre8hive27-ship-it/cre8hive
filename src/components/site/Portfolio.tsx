@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import gentlePathAsset from "@/assets/gentle-path-hero.jpg.asset.json";
 import noorAsset from "@/assets/noor-al-hidayah-hero.jpg.asset.json";
 import neatNoteAsset from "@/assets/neat-note-hero.jpg.asset.json";
+import deenFlowAsset from "@/assets/deen-flow-hero.jpg.asset.json";
 import p3 from "@/assets/portfolio-3.jpg";
 import p4 from "@/assets/portfolio-4.jpg";
 import p5 from "@/assets/portfolio-5.jpg";
@@ -12,6 +13,7 @@ import p6 from "@/assets/portfolio-6.jpg";
 const p1 = gentlePathAsset.url;
 const pNoor = noorAsset.url;
 const pNeatNote = neatNoteAsset.url;
+const pDeenFlow = deenFlowAsset.url;
 
 type Project = {
   img: string;
@@ -44,6 +46,13 @@ const projects: Project[] = [
     title: "Neat Note",
     desc: "A modern, minimal landing page for a distraction-free note-taking app.",
     liveUrl: "https://neat-note-home.lovable.app",
+  },
+  {
+    img: pDeenFlow,
+    category: "Web Application",
+    title: "Deen Flow",
+    desc: "A modern Islamic productivity and habit-tracking web app for daily worship and personal goals.",
+    liveUrl: "https://deen-flow-app.lovable.app",
   },
   {
     img: p3,
