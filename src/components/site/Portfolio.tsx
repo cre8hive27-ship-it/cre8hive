@@ -5,6 +5,7 @@ import gentlePathAsset from "@/assets/gentle-path-hero.jpg.asset.json";
 import noorAsset from "@/assets/noor-al-hidayah-hero.jpg.asset.json";
 import neatNoteAsset from "@/assets/neat-note-hero.jpg.asset.json";
 import deenFlowAsset from "@/assets/deen-flow-hero.jpg.asset.json";
+import niyyahCoreAsset from "@/assets/niyyah-core-hero.jpg.asset.json";
 import p3 from "@/assets/portfolio-3.jpg";
 import p4 from "@/assets/portfolio-4.jpg";
 import p5 from "@/assets/portfolio-5.jpg";
@@ -14,6 +15,7 @@ const p1 = gentlePathAsset.url;
 const pNoor = noorAsset.url;
 const pNeatNote = neatNoteAsset.url;
 const pDeenFlow = deenFlowAsset.url;
+const pNiyyahCore = niyyahCoreAsset.url;
 
 type Project = {
   img: string;
@@ -53,6 +55,13 @@ const projects: Project[] = [
     title: "Deen Flow",
     desc: "A modern Islamic productivity and habit-tracking web app for daily worship and personal goals.",
     liveUrl: "https://deen-flow-app.lovable.app",
+  },
+  {
+    img: pNiyyahCore,
+    category: "Web Application",
+    title: "Niyyah Core",
+    desc: "A modern Islamic web application that helps Muslims build consistent worship habits through daily reflection and intentional spiritual growth.",
+    liveUrl: "https://niyyah-core.lovable.app",
   },
   {
     img: p3,
