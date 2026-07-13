@@ -30,10 +30,11 @@ const projects: Project[] = [
     caseStudyTo: "/portfolio/ai-mental-health",
   },
   {
-    img: p2,
-    category: "E-Commerce",
-    title: "Lascome Fashion",
-    desc: "Editorial-grade storefront with conversion-first UX.",
+    img: pNoor,
+    category: "Website Development",
+    title: "Noor Al-Hidayah Portal",
+    desc: "A modern Islamic education and community platform for students, teachers, and administrators.",
+    liveUrl: "https://noor-al-hidayah-portal.lovable.app",
   },
   {
     img: p3,
