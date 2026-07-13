@@ -2,13 +2,14 @@ import { ArrowUpRight, ExternalLink, FileText } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import gentlePathAsset from "@/assets/gentle-path-hero.jpg.asset.json";
-import p2 from "@/assets/portfolio-2.jpg";
+import noorAsset from "@/assets/noor-al-hidayah-hero.jpg.asset.json";
 import p3 from "@/assets/portfolio-3.jpg";
 import p4 from "@/assets/portfolio-4.jpg";
 import p5 from "@/assets/portfolio-5.jpg";
 import p6 from "@/assets/portfolio-6.jpg";
 
 const p1 = gentlePathAsset.url;
+const pNoor = noorAsset.url;
 
 type Project = {
   img: string;
@@ -29,10 +30,11 @@ const projects: Project[] = [
     caseStudyTo: "/portfolio/ai-mental-health",
   },
   {
-    img: p2,
-    category: "E-Commerce",
-    title: "Lascome Fashion",
-    desc: "Editorial-grade storefront with conversion-first UX.",
+    img: pNoor,
+    category: "Website Development",
+    title: "Noor Al-Hidayah Portal",
+    desc: "A modern Islamic education and community platform for students, teachers, and administrators.",
+    liveUrl: "https://noor-al-hidayah-portal.lovable.app",
   },
   {
     img: p3,
