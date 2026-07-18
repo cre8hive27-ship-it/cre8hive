@@ -161,6 +161,18 @@ export function Portfolio() {
                         <p className="mt-1 text-sm text-muted-foreground">
                           {p.desc}
                         </p>
+                        {p.tech && p.tech.length > 0 && (
+                          <div className="mt-3 flex flex-wrap gap-1.5">
+                            {p.tech.map((t) => (
+                              <span
+                                key={t}
+                                className="inline-flex items-center rounded-full border border-border bg-muted px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-foreground"
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
                       <span className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:bg-foreground group-hover:text-background">
                         <ArrowUpRight className="h-4 w-4" />
