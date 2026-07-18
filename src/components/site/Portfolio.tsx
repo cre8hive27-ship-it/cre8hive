@@ -6,6 +6,7 @@ import noorAsset from "@/assets/noor-al-hidayah-hero.jpg.asset.json";
 import neatNoteAsset from "@/assets/neat-note-hero.jpg.asset.json";
 import deenFlowAsset from "@/assets/deen-flow-hero.jpg.asset.json";
 import niyyahCoreAsset from "@/assets/niyyah-core-hero.jpg.asset.json";
+import smoothAsset from "@/assets/smooth-design-replicator-hero.jpg.asset.json";
 import p3 from "@/assets/portfolio-3.jpg";
 import p4 from "@/assets/portfolio-4.jpg";
 import p5 from "@/assets/portfolio-5.jpg";
@@ -16,6 +17,7 @@ const pNoor = noorAsset.url;
 const pNeatNote = neatNoteAsset.url;
 const pDeenFlow = deenFlowAsset.url;
 const pNiyyahCore = niyyahCoreAsset.url;
+const pSmooth = smoothAsset.url;
 
 type Project = {
   img: string;
@@ -23,10 +25,21 @@ type Project = {
   title: string;
   desc: string;
   liveUrl?: string;
+  liveLabel?: string;
   caseStudyTo?: string;
+  tech?: string[];
 };
 
 const projects: Project[] = [
+  {
+    img: pSmooth,
+    category: "UI/UX • Frontend Development • Design Replication",
+    title: "Smooth Design Replicator",
+    desc: "A pixel-perfect recreation of a modern landing page built with Lovable — responsive, production-ready, and finely tuned for smooth interactions and excellent UX.",
+    liveUrl: "https://smooth-design-replicator.lovable.app",
+    liveLabel: "View Live Demo",
+    tech: ["Lovable", "React", "TypeScript", "Tailwind CSS"],
+  },
   {
     img: p1,
     category: "Healthcare • Mental Health • Therapy • AI Web Application",
@@ -148,6 +161,18 @@ export function Portfolio() {
                         <p className="mt-1 text-sm text-muted-foreground">
                           {p.desc}
                         </p>
+                        {p.tech && p.tech.length > 0 && (
+                          <div className="mt-3 flex flex-wrap gap-1.5">
+                            {p.tech.map((t) => (
+                              <span
+                                key={t}
+                                className="inline-flex items-center rounded-full border border-border bg-muted px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-foreground"
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
                       <span className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:bg-foreground group-hover:text-background">
                         <ArrowUpRight className="h-4 w-4" />
@@ -164,7 +189,7 @@ export function Portfolio() {
                         className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground"
                       >
                         <ExternalLink className="h-3.5 w-3.5" />
-                        View Live Project
+                        {p.liveLabel ?? "View Live Project"}
                       </a>
                       {p.caseStudyTo && (
                         <Link
