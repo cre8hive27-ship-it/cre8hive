@@ -6,6 +6,7 @@ import noorAsset from "@/assets/noor-al-hidayah-hero.jpg.asset.json";
 import neatNoteAsset from "@/assets/neat-note-hero.jpg.asset.json";
 import deenFlowAsset from "@/assets/deen-flow-hero.jpg.asset.json";
 import niyyahCoreAsset from "@/assets/niyyah-core-hero.jpg.asset.json";
+import smoothAsset from "@/assets/smooth-design-replicator-hero.jpg.asset.json";
 import p3 from "@/assets/portfolio-3.jpg";
 import p4 from "@/assets/portfolio-4.jpg";
 import p5 from "@/assets/portfolio-5.jpg";
@@ -16,6 +17,7 @@ const pNoor = noorAsset.url;
 const pNeatNote = neatNoteAsset.url;
 const pDeenFlow = deenFlowAsset.url;
 const pNiyyahCore = niyyahCoreAsset.url;
+const pSmooth = smoothAsset.url;
 
 type Project = {
   img: string;
@@ -23,7 +25,9 @@ type Project = {
   title: string;
   desc: string;
   liveUrl?: string;
+  liveLabel?: string;
   caseStudyTo?: string;
+  tech?: string[];
 };
 
 const projects: Project[] = [
