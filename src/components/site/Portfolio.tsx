@@ -32,6 +32,15 @@ type Project = {
 
 const projects: Project[] = [
   {
+    img: pSmooth,
+    category: "UI/UX • Frontend Development • Design Replication",
+    title: "Smooth Design Replicator",
+    desc: "A pixel-perfect recreation of a modern landing page built with Lovable — responsive, production-ready, and finely tuned for smooth interactions and excellent UX.",
+    liveUrl: "https://smooth-design-replicator.lovable.app",
+    liveLabel: "View Live Demo",
+    tech: ["Lovable", "React", "TypeScript", "Tailwind CSS"],
+  },
+  {
     img: p1,
     category: "Healthcare • Mental Health • Therapy • AI Web Application",
     title: "AI Mental Health & Therapy Practice Website Built with Lovable AI",
